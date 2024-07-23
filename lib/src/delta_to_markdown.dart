@@ -188,7 +188,8 @@ class DeltaToMarkdown extends Converter<Delta, String>
   };
 
   final Map<String, EmbedToMarkdown> _embedHandlers = {
-    BlockEmbed.imageType: (embed, out) => out.write('![](assets/${embed.value.data})'),
+    BlockEmbed.imageType: (embed, out) =>
+        out.write('![](assets/${embed.value.data})'),
     horizontalRuleType: (embed, out) {
       // adds new line after it
       // make --- separated so it doesn't get rendered as header
@@ -269,7 +270,7 @@ class DeltaToMarkdown extends Converter<Delta, String>
 
     final type = embed.value.type;
 
-    _embedHandlers[type]!.call(embed, out);
+    _embedHandlers[type]?.call(embed, out);
 
     return out;
   }

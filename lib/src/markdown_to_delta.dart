@@ -93,13 +93,13 @@ class MarkdownToDelta extends Converter<String, Delta>
     'em': (_) => [Attribute.italic],
     'strong': (_) => [Attribute.bold],
     'del': (_) => [Attribute.strikeThrough],
-    'a': (element) => [LinkAttribute(element.attributes['href'])],
+    // 'a': (element) => [LinkAttribute(element.attributes['href'])],
     'code': (_) => [Attribute.inlineCode],
   };
 
   final _elementToEmbed = <String, ElementToEmbeddableConvertor>{
     'hr': (_) => horizontalRule,
-    'img': (elAttrs) => BlockEmbed.image(elAttrs['src'] ?? ''),
+    // 'img': (elAttrs) => BlockEmbed.image(elAttrs['src'] ?? ''),
   };
 
   var _delta = Delta();
